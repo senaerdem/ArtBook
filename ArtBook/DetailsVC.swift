@@ -11,15 +11,34 @@ import CoreData
 class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var artistTextField: UITextField!
-    
     @IBOutlet weak var yearTextField: UITextField!
+    
+    var chosenPainting = ""
+    var chosenPaintingId : UUID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if chosenPainting != "" {
+            // Core Data
+            
+            // let stringUUID = chosenPaintingId!.uuidString
+            // print(stringUUID)
+            
+            
+            
+            
+            
+        }
+        else {
+            nameTextField.text = ""
+            artistTextField.text = ""
+            yearTextField.text = ""
+        }
+        
+        
         
         // Recognizers
 
@@ -75,7 +94,8 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             print("error")
         }
         
-        //context.save()
+        NotificationCenter.default.post(name: NSNotification.Name("newData"), object: nil)
+        self.navigationController?.popViewController(animated: true)
         
     }
 }
