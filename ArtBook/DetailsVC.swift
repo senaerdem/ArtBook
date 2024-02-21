@@ -9,7 +9,8 @@ import UIKit
 import CoreData
 
 class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    @IBOutlet weak var saveButton: UIButton!
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var artistTextField: UITextField!
@@ -22,6 +23,9 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         super.viewDidLoad()
         
         if chosenPainting != "" {
+            
+            saveButton.isHidden = true
+            
             // Core Data
             
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -58,6 +62,8 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             }
         }
         else {
+            saveButton.isHidden = false
+            saveButton.isEnabled = false
             nameTextField.text = ""
             artistTextField.text = ""
             yearTextField.text = ""
@@ -85,6 +91,7 @@ class DetailsVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         imageView.image = info[.originalImage] as? UIImage
+        saveButton.isEnabled = true
         self.dismiss(animated: true, completion: nil)
     }
     
