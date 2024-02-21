@@ -1,7 +1,6 @@
 # Art Book App
 
-### Artworks are booked with name, artist, date and photo. Can be deleted from list.
-Made using core data.
+### Artworks are booked with name, artist, year and photo. Developed for learning Core Data.
 
 
 <img width="310" alt="Screenshot 2024-02-14 at 19 23 49" src="https://github.com/senaerdem/ArtBook/assets/98752496/046800c8-dab4-4a13-9ca7-3d4bdf8d535a">
